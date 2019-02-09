@@ -107,7 +107,7 @@
 					$("#file3").trigger('click');
 				});
 				</script>
-				<button class="btn btn-default btn-fill btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>"><span class="fa fa-send fa-lg"></span></button>
+				<button class="btn btn-default btn-fill btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>"><span class="fa fa-send fa-lg"></span> SEND</button>
 			</span>
 		</div>
 	</div>
