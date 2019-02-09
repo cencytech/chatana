@@ -11,7 +11,7 @@
 <body>
 <?php include('../pages/header-main.php'); ?>
 
- 
+
 <div class="container">
 	<div class="row">
 		<?php include('room.php'); ?>
@@ -32,16 +32,19 @@ $(document).ready(function(){
 				alert('Please write message first');
 			}else{
 				$msg = $('#chat_msg').val();
+				$photo = $('#file1').val();
 				
 				$.ajax({
 					type: "POST",
 					url: "send_message.php",
 					data: {
+						photo: $photo,
 						msg: $msg,
 						id: id,
 					},
 					success: function(){
 						$('#chat_msg').val("");
+						$('#file1').val("");
 						displayChat();
 					}
 				}); 	
