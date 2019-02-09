@@ -41,9 +41,9 @@
 	<div class="box-footer">
 		<div class="input-group ">
 			<input type="text" class="form-control chat_msg" placeholder="Type message..." id="chat_msg">
-			<!--input type="file" class="chat_image" id="chat_image"-->
-
+			
 			<span class="input-group-btn">
+				<input type="file" class="btn btn-default btn-flat #send_msg">
 				<button class="btn btn-success btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>"><span class="fa fa-comment"></span> Send</button>
 			</span>
 		</div>
