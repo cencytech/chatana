@@ -1,0 +1,40 @@
+
+<script src="js/jquery.min.js"></script>
+
+<script type="text/javascript" >
+	$(document).ready(function()
+	{
+	$("#notification_Link").click(function()
+	{
+	$("#notification_Wrapper").fadeToggle(300);
+	$("#notification_Count").fadeOut("slow");
+	return false;
+	});
+
+	//Document Click
+	$(document).click(function()
+	{
+	$("#notification_Wrapper").remove();
+	});
+	//Popup Click
+	$("#notification_Wrapper").click(function()
+	{
+	return false
+	});
+
+	});
+</script>
+ 
+		<li id="notification_li">
+			<span id="notification_Count">3</span>
+			<a href="#" id="notification_Link">Notifications</a>
+			<div id="notification_Wrapper">
+				<div id="notificationTitle">Notifications</div>
+				<div id="notificationsBody" class="notifications"></div>
+				<div id="notificationFooter">
+					<a href="#">See All</a>
+				</div>
+			</div>
+		</li>
+ 
+ 
