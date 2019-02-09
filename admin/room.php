@@ -45,7 +45,7 @@
 			<span class="input-group-btn">
 
 				<input type="file" class="file1" id="file1" name="image" accept="image/*" capture style="display:none"/>
-				<img src="../upload/icons/camera-icon.png" id="upfile1" style="cursor:pointer" width="32px" />
+				<img src="../upload/icons/camera-icon-default.png" id="upfile1" style="cursor:pointer" width="32px" />
 
 				<script>
 				  $(document).ready(function(e) {
