@@ -44,9 +44,10 @@
 			
 			<span class="input-group-btn">
 
-				<input type="file" class="file1" id="file1" name="image" accept="image/*" capture style="display:none"/>
+				<input type="file" class="file1" id="file1" accept="image/*" capture style="display:none"/>
+				<button class="btn btn-default btn-fill btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>"><span class="fa fa-send fa-lg"></span> SEND</button>
+				
 				<img src="../upload/icons/camera-icon-default.png" id="upfile1" style="cursor:pointer" width="32px" />
-
 				<script>
 				  $(document).ready(function(e) {
 						$(".showonhover").click(function(){
@@ -100,14 +101,16 @@
 				$("#upfile1").click(function () {
 					$("#file1").trigger('click');
 				});
+				/*
 				$("#upfile2").click(function () {
 					$("#file2").trigger('click');
 				});
 				$("#upfile3").click(function () {
 					$("#file3").trigger('click');
 				});
+				*/
 				</script>
-				<button class="btn btn-default btn-fill btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>"><span class="fa fa-send fa-lg"></span> SEND</button>
+				
 			</span>
 		</div>
 	</div>

@@ -29,16 +29,16 @@ $(document).ready(function(){
 		$(document).on('click', '#send_msg', function(){
 			id = <?php echo $id; ?>;
 			if($('#chat_msg').val() == ""){
-				alert('Please write message first');
+				// alert('Please write message first');
 			}else{
 				$msg = $('#chat_msg').val();
-				$photo = $('#file1').val();
+				$file1 = $('#file1').val();
 				
 				$.ajax({
 					type: "POST",
 					url: "send_message.php",
 					data: {
-						photo: $photo,
+						file1: $file1,
 						msg: $msg,
 						id: id,
 					},
