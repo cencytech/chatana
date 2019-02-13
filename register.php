@@ -98,6 +98,10 @@
 	
 	<div class="col-md-12">
 		<div id = "preview" class="">
+			<input type="hidden" name="username" id="username" class="form-control" value="edit_user<?php 
+			echo (rand(10, 999));
+			?>">
+						
 			<div class="form-group input-group custom-text">
 				<span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
 				<input type="text" name="fname" id="fname" placeholder="First Name*" class="form-control" value="<?php if(isset($_POST['fname'])){echo $_POST['fname'];} ?>" required>
