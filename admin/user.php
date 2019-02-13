@@ -1,6 +1,6 @@
 <?php include('session.php'); ?>
 <?php include('header.php'); ?>
-<body>
+
 <?php include('../pages/header-main.php'); ?>
 <div class="container">
 	<div class="row">
