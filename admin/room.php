@@ -44,8 +44,7 @@
 			
 			<span class="input-group-btn">
 
-				<input type="file" class="file1" id="file1" name="file1" accept="image/*" capture style="display:none"/>
-				<button class="btn btn-default btn-fill btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>"><span class="fa fa-send fa-lg"></span> SEND</button>
+			<input type="file" class="form-control chat_img" id="jschat_img" accept="image/*" capture style="display:none"/>
 				
 				<img src="../upload/icons/camera-icon-default.png" id="upfile1" style="cursor:pointer" width="32px" />
 				<script>
@@ -99,7 +98,7 @@
 				}
 
 				$("#upfile1").click(function () {
-					$("#file1").trigger('click');
+					$("#jschat_img").trigger('click');
 				});
 				/*
 				$("#upfile2").click(function () {
@@ -110,7 +109,7 @@
 				});
 				*/
 				</script>
-				
+			<button class="btn btn-default btn-fill btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>"><span class="fa fa-send fa-lg"></span> SEND</button>
 			</span>
 		</div>
 	</div>

@@ -5,11 +5,13 @@
 		
 		$query=mysqli_query($conn,"select * from `chat` left join `user` on user.userid=chat.userid where chatroomid='$id' order by chat_date asc") or die(mysqli_error());
 		while($row=mysqli_fetch_array($query)){
+			 
 		?>
  
 		<div class="direct-chat-msg">
 			<!-- /.direct-chat-info -->
 			<img class="direct-chat-img" src="<?php if(empty($row['photo'])){echo "../upload/avatar/default.jpg";}else{echo "../upload/avatar/" . $row['photo'];} ?>">
+			
 			<div class="direct-chat-text">
 				<a href="#"><strong><?php echo $row['username']; ?></strong></a>:
 					<h4><?php echo $row['message']; ?></h5>
@@ -24,6 +26,5 @@
 				<br>
 			</div>
 		<!-- /.direct-chat-text -->
-		</div>
- 
+		</div> 
 		<?php } } ?>

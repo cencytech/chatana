@@ -32,19 +32,19 @@ $(document).ready(function(){
 				// alert('Please write message first');
 			}else{
 				$msg = $('#chat_msg').val();
-				$file1 = $('#file1').val();
+				$file1 = $('#chat_img').val();
 				
 				$.ajax({
 					type: "POST",
 					url: "send_message.php",
 					data: {
-						file1: $file1,
 						msg: $msg,
+						file1: $file1,
 						id: id,
 					},
 					success: function(){
 						$('#chat_msg').val("");
-						$('#file1').val("");
+						$('#chat_img').val("");
 						displayChat();
 					}
 				}); 	
