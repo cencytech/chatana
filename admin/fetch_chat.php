@@ -17,8 +17,8 @@
 					<h4><?php echo $row['message']; ?></h5>
 					
 				<p>
-					<?php if($row['chat_image'] != ""): ?>
-						<img src="../upload/chat/<?php echo $row['chat_image']; ?>" width="100px">
+					<?php if($row['img_location'] != ""): ?>
+						<img src="<?php echo $row['img_location']; ?>" width="100px">
 					<?php else: ?>
 					<?php endif; ?>
 				</p>

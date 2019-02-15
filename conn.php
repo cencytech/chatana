@@ -12,7 +12,8 @@ $config = array(
 //MySQLi Procedural
 $conn = mysqli_connect($config["Host"],$config["Root"],$config["Pass"],$config["Db"]);
 
-#$conn = mysqli_connect("localhost","root","","abfiphco_chatana");
+#$mysqliConnectUpimage = mysqli_connect($config["Host"],$config["Root"],$config["Pass"],$config["Db"]);
+
 
 if (!$conn) {die("Connection failed: " . mysqli_connect_error());}
 

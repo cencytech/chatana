@@ -16,9 +16,14 @@
 				{
 				?>
 				<li>
-					<a href="#">
-					<img class="img-circle" src="<?php if(($rowusr['photo']==null)){echo "../upload/avatar/default.jpg";}else{echo $rowusr['photo'];} ?>" height="64px;" width="64px;">						
-					<?php if ($rowusr['access']==1) { ?>
+				<a href="#">
+					<?php $accid = $rowusr['userid'];
+					$qUser=mysqli_query($conn,"select photo from `user` where userid='$accid'");
+					while($qu=mysqli_fetch_array($qUser)) { ?>
+						<img class="img-circle" src="<?php if(($qu['photo']==null)){echo "../upload/avatar/default.jpg";}else{echo "../upload/avatar/".$qu['photo'];} ?>" width="50px" height="50px">
+					<?php 
+					} 
+					if ($rowusr['access']==1) { ?>
 						<span class="#pull-right badge bg-blue">Admin</span>
 						<span class="#pull-right badge bg-default"><input type="hidden" id="eusername<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['username']; ?>"><?php echo $rowusr['username']; ?></span>
 						<button type="button" class="pull-right btn btn-default edituser" value="<?php echo $rowusr['userid']; ?>"><span class="glyphicon glyphicon-pencil"></span> Modify</button>
@@ -27,8 +32,10 @@
 						<span class="#pull-right badge bg-default"><input type="hidden" id="eusername<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['username']; ?>"><?php echo $rowusr['username']; ?></span>
 						<button type="button" class="pull-right btn btn-danger deleteuser" value="<?php echo $rowusr['userid']; ?>"><span class="glyphicon glyphicon-trash"></span> Trash</button>
 						<button type="button" class="pull-right btn btn-default edituser" value="<?php echo $rowusr['userid']; ?>"><span class="glyphicon glyphicon-pencil"></span> Modify</button>
-					<?php } ?>
-					<center><h2><?php echo $rowusr['uname']; ?></h2></center>
+					<?php 
+					} 
+						echo "<center><h2>" . $rowusr['uname'] . "</h2></center>" ;
+					?>
 						<input type="hidden" id="ename<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['uname']; ?>">
 						<input type="hidden" id="epassword<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['password']; ?>">
 					</a>

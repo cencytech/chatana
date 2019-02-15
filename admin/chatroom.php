@@ -28,27 +28,27 @@ $(document).ready(function(){
 	
 		$(document).on('click', '#send_msg', function(){
 			id = <?php echo $id; ?>;
-			if($('#chat_msg').val() == ""){
+			//if($('#chat_msg').val() == ""){
 				// alert('Please write message first');
-			}else{
+			//}else{
 				$msg = $('#chat_msg').val();
-				$file1 = $('#chat_img').val();
+				$img_location = $('#img_location').val();
 				
 				$.ajax({
 					type: "POST",
 					url: "send_message.php",
 					data: {
 						msg: $msg,
-						file1: $file1,
+						img_location: $img_location,
 						id: id,
 					},
 					success: function(){
 						$('#chat_msg').val("");
-						$('#chat_img').val("");
+						$('#img_location').val("");
 						displayChat();
 					}
-				}); 	
-			}	
+				});
+			//}
 		});
 		
 		$(document).on('click', '#confirm_leave', function(){

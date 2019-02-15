@@ -9,6 +9,6 @@
 	
 	mysqli_query($conn,"update `user` set isOnline='0' where userid='$id'");
 	
-	header('location:../');
+	header('location:../login.php?logout=1');
 	
 	?>

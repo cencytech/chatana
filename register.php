@@ -31,6 +31,7 @@
 	
 	
 	if(count($errors) === 0){
+		$username = mysqli_real_escape_string($conn, $_POST['username']);
 		$fname = mysqli_real_escape_string($conn, $_POST['fname']);
 		$lname = mysqli_real_escape_string($conn, $_POST['lname']);
 		$email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -56,6 +57,7 @@
 		}else{
 			$sql = "INSERT INTO user(`fname`, `lname`, `email`, `salt`, `password`, `access`, `photo`) VALUES ('$fname', '$lname', '$email', '$salt', '$password', '$access','$location')";
 			$query = mysqli_query($conn, $sql);
+			$_POST['username'] = '';
 			$_POST['fname'] = '';
 			$_POST['lname'] = '';
 			$_POST['email'] = '';

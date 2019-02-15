@@ -44,9 +44,12 @@
 			
 			<span class="input-group-btn">
 
-			<input type="file" class="form-control chat_img" id="jschat_img" accept="image/*" capture style="display:none"/>
-				
-				<img src="../upload/icons/camera-icon-default.png" id="upfile1" style="cursor:pointer" width="32px" />
+			<!--input type="file" class="form-control img_location" id="img_location" accept="image/*" capture style="display:none"/>
+			-->
+			
+			<input type="file" class="form-control img_location" id="img_location" style="display:none">
+			
+			<img src="../upload/icons/camera-icon-default.png" id="upfile1" style="cursor:pointer" width="32px" />
 				<script>
 				  $(document).ready(function(e) {
 						$(".showonhover").click(function(){
@@ -98,7 +101,7 @@
 				}
 
 				$("#upfile1").click(function () {
-					$("#jschat_img").trigger('click');
+					$("#img_location").trigger('click');
 				});
 				/*
 				$("#upfile2").click(function () {

@@ -1,15 +1,20 @@
 <?php
 	include('../conn.php');
 	session_start();
-	
-		
-	move_uploaded_file($_FILES["file1"]["tmp_name"],"../upload/chat/" . $_FILES["file1"]["name"]);	
-	$file1 = $_FILES["file1"]["name"];
-	if(isset($_POST['msg']) && !empty($_FILES["file"]["name"])){
+
+	if(isset($_POST['msg'])){
 
 	$msg = $_POST['msg'];
 
 	$id = $_POST['id'];
-	mysqli_query($conn,"insert into `chat` (chatroomid, message, file1, userid, chat_date) values ('$id', '$msg' , '$file1' , '".$_SESSION['id']."', NOW())") or die(mysqli_error());
+
+	$fileinfo	=	PATHINFO($_FILES["img_location"]["name"]);
+	$newFilename = $fileinfo['filename'] . "." . $fileinfo['extension'];
+
+	move_uploaded_file($_FILES["img_location"]["tmp_name"],"../upload/chat/");
+
+	$img_location = "../upload/chat/" . $newFilename;
+
+	mysqli_query($conn,"INSERT INTO `chat` (chatroomid, message, img_location, userid, chat_date) values ('$id', '$msg' , '$img_location' , '".$_SESSION['id']."', NOW())");
 	}
 ?>
