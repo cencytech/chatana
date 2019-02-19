@@ -18,7 +18,7 @@
 		<div class="post">
 			<div class="box-header #with-border">
 				<div class="user-block">
-					<h3 class="title"><?php echo $post['post_title']; ?><a class="pull-right btn btn-box-tool" href = "inbox.php"><i class = "fa fa-reply fa-2x"></i></a></h3>
+					<h3 class="title"><?php echo $post['post_title']; ?><a class="pull-right btn btn-box-tool" href = "inbox.php"><i class = "fa fa-remove fa-2x"></i></a></h3>
 					<span>Posted by <b><?php echo $post['sent_by']; ?></b></span>
 					<span class="pull-right"><?php echo $post['post_date']; ?></span>
 				</div>

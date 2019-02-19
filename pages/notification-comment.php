@@ -6,7 +6,7 @@
 <li class="dropdown notifications-menu ">
 	<!-- Menu toggle button -->
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	  <i class="fa fa-bell fa-2x"></i>
+	  <i class="fa fa-comments-o fa-2x"></i>
 		<!--
 		< ?php	// DIsplay count records.
 				$querynum = mysqli_query($conn, "select * from comment");
@@ -20,7 +20,7 @@
 		-->
 	</a>
 	<ul class="dropdown-menu">
-	<div class="alert">Activity <a href="inbox-comments.php" class="pull-right">View All &nbsp;<span class="label label-warning pull-right"><?php echo $comment_countX ?></span></a></div>
+	<div class="alert">View All Comments <a href="inbox-comments.php" class="pull-right"><i class="fa fa-link fa-lg"></i></a></div>
 	<?php 
 		$query=mysqli_query($conn,"select * from comment left join tbl_posts on tbl_posts.id = comment.post_id  where send_to = '$user' limit 5");
 		while($row=mysqli_fetch_array($query)){

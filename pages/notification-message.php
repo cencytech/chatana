@@ -7,12 +7,12 @@
 <li class="dropdown messages-menu">
 	<!-- Menu toggle button -->
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		<i class="fa fa-envelope-o fa-2x"></i>
+		<i class="fa fa-inbox fa-2x"></i>
 		<span class="label label-success"></span>
 	</a>
 
 	<ul class="dropdown-menu">	
-		<div class="alert">Recent Message <a href="inbox.php" class="pull-right">Go To Inbox  &nbsp;<span class="label label-warning pull-right"><?php echo $comment_countX ?></span></a></div>
+		<div class="alert">View All Messages <a href="inbox.php" class="pull-right"><i class="fa fa-link fa-lg"></i></a></div>
 	
 	<?php $query = mysqli_query($conn,"select * from tbl_posts  where send_to = '$email_user' limit 5");
 		
@@ -47,6 +47,6 @@
 		<!-- /.menu -->
 	  </li>
 		<?php } ?>
-	  <li class="footer"><a href="inbox.php" >Go To Inbox</a></li>
+	  <li class="footer"><a href="inbox.php" >See All</a></li>
 	</ul>
   </li>

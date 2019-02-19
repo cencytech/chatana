@@ -25,7 +25,7 @@
 				<li><a href="inbox.php"><i class="fa fa-envelope fa-2x"></i></a>
 				</li>
 			</ul>
-		</div-->
+		</div- ->
 		<div class="navbar-custom-menu pull-left">
 			<ul class="nav navbar-nav">
 				<li><a href="group-chat.php"><i class="fa fa-group fa-2x"></i></a></li>
@@ -36,24 +36,26 @@
         <ul class="nav navbar-nav">
         
           <!-- Post Notifications Menu -->
-		  <?php include "../pages/notification-message.php" ?>
-          
-		  <?php include "../pages/notification-comment.php" ?>
-          
-          <!-- User Account Menu -->
-			 <?php include "../pages/user-account.php" ?>
-			 
-          <!-- Control Sidebar Toggle Button - ->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gear fa-2x"></i></a>
-          </li-->
+			<?php include "manage-group.php" ?>
+			
+			<?php include "../pages/notification-message.php" ?>
+			
+			<?php include "../pages/notification-comment.php" ?>
+
+			<!-- User Account Menu -->
+			<?php include "../pages/user-account.php" ?>
+			
+          <!-- Control Sidebar Toggle Button -- >
+		<li>
+			<a href="#" data-toggle="control-sidebar"><i class="fa fa-group fa-2x"></i></a>
+		</li-->
 		   
         </ul>
       </div>
     </nav>
   </header>
  
-  <aside class="main-sidebar">
+<aside class="main-sidebar">
     <section class="sidebar">
     <h4 class="title container">Active User(s)</h4>
 	<?php $query=mysqli_query($conn,"select * from user where isActivated!=0 order by 1 desc");
@@ -77,12 +79,9 @@
 
 		</div>
 	<?php } ?>
-    </section>
+</section>
  
   </aside>
  
-  <div class="content-wrapper" style="background-color:#fff">
-
-  <br>
-  
-  
+	<div class="content-wrapper" style="background-color:#fff">
+<br>

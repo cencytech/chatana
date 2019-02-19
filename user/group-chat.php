@@ -6,7 +6,7 @@
 	<div class="row">
 		<?php include('mychat.php'); ?>
 		<hr>
-		<?php include('chatlist.php'); ?>
+		<?php #include('chatlist.php'); ?>
 	</div>
 </div>
 <?php include('password_modal.php'); ?>

@@ -25,7 +25,8 @@ $(document).ready(function(){
 					chatpass: chatpass,
 				},
 				success:function(data){
-				window.location.href='chatroom.php?id='+data;
+				//window.location.href='chatroom.php?id='+data;
+				window.location.href='group-chat.php';
 				}
 			});
 		

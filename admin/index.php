@@ -14,20 +14,18 @@
 			$query = mysqli_query($conn,"select * from `broadcast_meta` order by 1 desc limit 3");
 			while($row=mysqli_fetch_array($query)){
 			?>
-			<center><p class="fa-lg"><em><?php echo $row['messagetoday']; ?>&nbsp;<a href="#announcement_edit" data-toggle="modal" style="color:#000;"><span class="fa fa-pencil"></span></a>	</em></p> <h5 class="pull-right">- Admin</h5>
+			<center><p class="fa-lg"><em>< ?php echo $row['messagetoday']; ?>&nbsp;<a href="#announcement_edit" data-toggle="modal" style="color:#000;"><span class="fa fa-pencil"></span></a>	</em></p> <h5 class="pull-right">- Admin</h5>
 			
 		< ?php } ?>
 		< ?php include "modal.php" ?>
 	</div-->
 
 <h2>Hi, <strong class="box box-success"><?php echo $fname ?></strong></h2>
+
 		<h4>At Glance</h4>
 		<div class="#row">
 			<?php include "dashboard.php" ?>
 		</div>
-	</div>
-</div>
-
 
 </section>
 

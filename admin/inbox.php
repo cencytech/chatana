@@ -3,7 +3,7 @@
 <?php include('header.php'); ?>
  
 <?php include('../pages/header-main.php'); ?>
- 
+<?php #include_once "sidebar-right-tabpane.php" ?>
 	<style>
 		#myBtn { 
 		  position: fixed;

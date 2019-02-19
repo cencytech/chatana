@@ -12,17 +12,15 @@
 			<!-- /.direct-chat-info -->
 			<img class="direct-chat-img" src="<?php if(empty($row['photo'])){echo "../upload/avatar/default.jpg";}else{echo "../upload/avatar/" . $row['photo'];} ?>">
 			
-			<div class="direct-chat-text">
-				<a href="#"><strong><?php echo $row['username']; ?></strong></a>:
-					<h4><?php echo $row['message']; ?></h5>
-					
+			<div class="direct-chat-text"> 
 				<p>
-					<?php if($row['img_location'] != ""): ?>
+				<a href="#"><strong><?php echo $row['username']; ?></strong></a>:
+					<?php if(empty($row['img_location'])): ?>
 						<img src="<?php echo $row['img_location']; ?>" width="100px">
 					<?php else: ?>
 					<?php endif; ?>
 				</p>
-				<small class="pull-right"><i class="fa fa-check"></i> Sent on <?php echo date('M-d-Y h:i A',strtotime($row['chat_date'])); ?></small>
+					<small class="pull-right"><i class="fa fa-check"></i> Sent on <?php echo date('M-d-Y h:i A',strtotime($row['chat_date'])); ?></small>
 				<br>
 			</div>
 		<!-- /.direct-chat-text -->

@@ -8,15 +8,15 @@
 		<br>
 		
 		<div class="box-footer #no-padding">
-			<?php $query=mysqli_query($conn,"select * from chatroom order by date_created desc");
-				while($row=mysqli_fetch_array($query)){
-				$num=mysqli_query($conn,"select * from chat_member where chatroomid='".$row['chatroomid']."'");
+			<?php $query = mysqli_query($conn,"select * from chatroom order by date_created desc");
+				while($row = mysqli_fetch_array($query)){
+				$num = mysqli_query($conn,"select * from chat_member where chatroomid='".$row['chatroomid']."'");
 				?>
 				
 				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="info-box bg-default">
 						<span class="info-box-icon">
-							<?php echo mysqli_num_rows($num); ?>							
+							<?php echo mysqli_num_rows($num); ?>				
 						</span>
 
 						<div class="info-box-content">

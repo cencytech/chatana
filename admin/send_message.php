@@ -8,7 +8,7 @@
 
 	$id = $_POST['id'];
 
-	$fileinfo	=	PATHINFO($_FILES["img_location"]["name"]);
+	$fileinfo	 = PATHINFO($_FILES["img_location"]["name"]);
 	$newFilename = $fileinfo['filename'] . "." . $fileinfo['extension'];
 
 	move_uploaded_file($_FILES["img_location"]["tmp_name"],"../upload/chat/");

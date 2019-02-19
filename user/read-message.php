@@ -9,7 +9,6 @@
 	
 
 <div class="col-sm-12">
-
 	<!----comment --> 
 <?php $result = $connPDO->prepare("SELECT * FROM tbl_posts WHERE id = $_REQUEST[id]");
 	$result->execute();
@@ -23,7 +22,7 @@
 			</div>
 			  <!-- /.user-block -->
 			<div class="box-tools">
-				<a class="btn btn-box-tool" href = "inbox.php"><i class = "fa fa-reply fa-2x"></i></a>
+				<a class="btn btn-box-tool" href = "inbox.php"><i class = "fa fa-remove fa-2x"></i></a>
 			</div>
 		  <!-- /.box-tools -->
 		</div>

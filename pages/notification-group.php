@@ -7,20 +7,20 @@
 <li class="dropdown messages-menu">
 	<!-- Menu toggle button -->
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		<i class="fa fa-envelope-o fa-2x"></i>
+		<i class="fa fa-users fa-2x"></i>
 		<span class="label label-success"></span>
 	</a>
 
 	<ul class="dropdown-menu">	
 		<div class="alert">Recent Message <a href="inbox.php" class="pull-right">Go To Inbox  &nbsp;<span class="label label-warning pull-right"><?php echo $comment_countX ?></span></a></div>
 	
-	<?php $query=mysqli_query($conn,"select * from tbl_posts  where send_to = '$user' limit 5");
-		
+	<?php $query = mysqli_query($conn,"select * from tbl_posts  where send_to = '$user' limit 5");
+
 		while($row=mysqli_fetch_array($query)) {
-		
+
 		$pId = $row['id'];
-		
-		?>
+
+	?>
 		
 		<li>
 		<!-- inner menu: contains the messages -->
@@ -46,6 +46,6 @@
 		<!-- /.menu -->
 	  </li>
 		<?php } ?>
-	  <li class="footer"><a href="inbox.php" >Go To Inbox</a></li>
+	  <li class="footer"><a href="inbox.php">Go To Inbox</a></li>
 	</ul>
   </li>

@@ -1,25 +1,26 @@
-<?php include('session.php'); ?>
-<?php include('header.php'); ?>
 <?php
+	include('session.php');
+	
+	include('header.php');
+
 	$id=$_REQUEST['id'];
 	
-	$chatq=mysqli_query($conn,"select * from chatroom where chatroomid='$id'");
-	$chatrow=mysqli_fetch_array($chatq);
+	$chatq = mysqli_query($conn,"select * from chatroom where chatroomid='$id'");
+	$chatrow = mysqli_fetch_array($chatq);
 	
-	$cmem=mysqli_query($conn,"select * from chat_member where chatroomid='$id'");
-?>
-<body>
-<?php include('../pages/header-main.php'); ?>
+	$cmem = mysqli_query($conn,"select * from chat_member where chatroomid='$id'");
+
+	include('../pages/header-main.php'); ?>
 
 
-<div class="container">
-	<div class="row">
-		<?php include('room.php'); ?>
+	<div class="container">
+		<div class="row">
+			<?php include('room.php'); ?>
+		</div>
 	</div>
-</div>
-<?php include('room_modal.php'); ?>
-<?php include('modal.php'); ?>
-
+	<?php	include('room_modal.php'); 
+			include('modal.php');
+			?>
 
 <script>
 $(document).ready(function(){
