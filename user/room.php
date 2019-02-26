@@ -57,6 +57,39 @@
 		<div class="input-group">
 			<input type="text" class="form-control chat_msg" placeholder="Type message..." id="chat_msg">
 			<span class="input-group-btn">
+ 
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+            <i class="fa fa-camera fa-2x"></i>
+			</button>
+   
+   <!-- /.modal image upload -->
+<div class="modal fade" id="modal-default">
+	<div class="#modal-dialog">
+		<div class="#modal-content">
+		
+		<form method="POST" action="image_upload.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span></button>
+
+				<input type="file" class="form-control" name="img_location" required>
+			</div>
+			
+
+			<div class="modal-body"> 
+				<button type="submit" class="pull-right btn btn-primary">Send Captured</button>
+			</div>
+		</form>
+		
+		</div>
+	
+		<!-- /.modal-content -->
+	</div>
+	  <!-- /.modal-dialog -->
+</div>
+	<!-- /.modal image upload -->
+	 
 			<button class="btn btn-primary btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>">
 				<span class="glyphicon glyphicon-comment"></span> Send
 			</button>

@@ -1,4 +1,13 @@
-
+<?php
+    // this refreshes current page after 5 seconds.
+   # header( "refresh:2;" );
+ 
+    // OR send to a new URL like this
+    #header( "refresh:3; url=chatroom.php" );
+ 
+    // OR simply echo the HTML meta tag
+?>
+<meta http-equiv="refresh" content="<?php echo $refresher; ?>" />
 <div class="col-lg-12"> 
 	<div class="panel panel-primary container">
 		<div class="widget-user-header #bg-green">
@@ -39,80 +48,45 @@
 	</div>
 
 	<div class="box-footer">
-		<div class="input-group ">
-			<input type="text" class="form-control chat_msg" placeholder="Type message..." id="chat_msg">
+		<div class="input-group">
+			<input type="text" class="form-control chat_msg" placeholder="Type message..." id="chat_msg" style="height:42px">
+
+			<span class="input-group-btn"> 
+ 
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+            <i class="fa fa-camera fa-2x"></i>
+			</button>
+   
+   <!-- /.modal image upload -->
+<div class="modal fade" id="modal-default">
+	<div class="#modal-dialog">
+		<div class="#modal-content">
+		
+		<form method="POST" action="image_upload.php?id=<?php echo $id; ?>" enctype="multipart/form-data">
+
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span></button>
+
+				<input type="file" class="form-control" name="img_location" required>
+			</div>
 			
-			<span class="input-group-btn">
 
-			<!--input type="file" class="form-control img_location" id="img_location" accept="image/*" capture style="display:none"/>
-			-->
-			
-			<input type="file" class="form-control img_location" id="img_location" style="display:none">
-			
-			<img src="../upload/icons/camera-icon-default.png" id="upfile1" style="cursor:pointer" width="32px" />
-				<script>
-				  $(document).ready(function(e) {
-						$(".showonhover").click(function(){
-							$("#selectfile").trigger('click');
-						});
-					});
+			<div class="modal-body"> 
+				<button type="submit" class="pull-right btn btn-primary">Send Captured</button>
+			</div>
+		</form>
+		
+		</div>
+	
+		<!-- /.modal-content -->
+	</div>
+	  <!-- /.modal-dialog -->
+</div>
+	<!-- /.modal image upload -->
+	 
 
-
-				var input = document.querySelector('input[type=file]'); // see Example 4
-
-				input.onchange = function () {
-				  var file = input.files[0];
-
-				  drawOnCanvas(file);   // see Example 6
-				  displayAsImage(file); // see Example 7
-				};
-
-				function drawOnCanvas(file) {
-				  var reader = new FileReader();
-
-				  reader.onload = function (e) {
-					var dataURL = e.target.result,
-						c = document.querySelector('canvas'), // see Example 4
-						ctx = c.getContext('2d'),
-						img = new Image();
-
-					img.onload = function() {
-					  c.width = img.width;
-					  c.height = img.height;
-					  ctx.drawImage(img, 0, 0);
-					};
-
-					img.src = dataURL;
-				  };
-
-				  reader.readAsDataURL(file);
-				}
-
-				function displayAsImage(file) {
-				  var imgURL = URL.createObjectURL(file),
-					  img = document.createElement('img');
-
-				  img.onload = function() {
-					URL.revokeObjectURL(imgURL);
-				  };
-
-				  img.src = imgURL;
-				  document.body.appendChild(img);
-				}
-
-				$("#upfile1").click(function () {
-					$("#img_location").trigger('click');
-				});
-				/*
-				$("#upfile2").click(function () {
-					$("#file2").trigger('click');
-				});
-				$("#upfile3").click(function () {
-					$("#file3").trigger('click');
-				});
-				*/
-				</script>
-			<button class="btn btn-default btn-fill btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>"><span class="fa fa-send fa-lg"></span> SEND</button>
+			<button class="btn btn-default btn-fill btn-flat send_msg" type="submit" id="send_msg" value="<?php echo $id; ?>"><span class="fa fa-send fa-2x"></span></button>
 			</span>
 		</div>
 	</div>

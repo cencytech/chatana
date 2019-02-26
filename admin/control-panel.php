@@ -29,18 +29,18 @@
 									<?php if($s_fetch['isActivated']!=1) { ?>
 										<form action="activate_script.php?userid=<?=$userid?>" method="post" >
 											<input type="hidden" name="isActivated" value="1">
-											<button type="submit" class="btn btn-success"><i class="fa fa-check fa-2x"></i></button>
+											<button type="submit" class="btn btn-success">Activate</button>
 										</form>
 									<?php } else { ?>
 										<?php if($s_fetch['access']=="admin") { ?>
 											<form action="activate_script.php?userid=<?=$userid?>" method="post" >
 												<input type="hidden" name="isActivated" value="0">
-												<button type="submit" class="btn btn-danger"><i class="fa fa-remove fa-2x"></i></button>
+												<button type="submit" class="btn btn-danger">Deactivate</button>
 											</form>
 										<?php } else { ?>
 											<form action="activate_script.php?userid=<?=$userid?>" method="post" >
 												<input type="hidden" name="isActivated" value="0">
-												<button type="submit" class="btn btn-danger"><i class="fa fa-remove fa-2x"></i></button>
+												<button type="submit" class="btn btn-danger">Deactivate</button>
 											</form>
 										<?php } ?>
 									<?php } ?>

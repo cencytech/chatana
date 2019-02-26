@@ -13,17 +13,16 @@
 			</div>
 			<!-- /.direct-chat-info -->
 			<img class="direct-chat-img" src="<?php if(empty($row['photo'])){echo "../upload/avatar/default.jpg";}else{echo "../upload/avatar/" . $row['photo'];} ?>">
-			<div class="direct-chat-text">
-				<a href="#"><strong><?php echo $row['username']; ?></strong></a>:
-					<h4><?php echo $row['message']; ?></h5>
-					
-				<p>
-					<?php if($row['image_location'] != ""): ?>
-						<img src="../<?php echo $row['image_location']; ?>" width="100px">
-					<?php else: ?>
-					<?php endif; ?>
-				</p>
-				<small class="pull-right"><i class="fa fa-check"></i> Sent on <?php echo date('M-d-Y h:i A',strtotime($row['chat_date'])); ?></small>
+			
+			<div class="direct-chat-text"> 
+				<h3>
+					<p>
+						<a href="#"><strong><?php echo $row['username']; ?></strong></a> said:
+					</p>
+						<?php echo $row['message']; ?>
+				</h3>
+				<img src="<?php echo $row['img_location']; ?>" width="100px">
+					<small class="pull-right"><i class="fa fa-check"></i> Sent on 	<?php echo date('M-d-Y h:i A',strtotime($row['chat_date'])); ?></small>
 				<br>
 			</div>
 		<!-- /.direct-chat-text -->

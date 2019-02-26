@@ -25,17 +25,18 @@
 					} 
 					if ($rowusr['access']==1) { ?>
 						<span class="#pull-right badge bg-blue">Admin</span>
-						<span class="#pull-right badge bg-default"><input type="hidden" id="eusername<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['username']; ?>"><?php echo $rowusr['username']; ?></span>
-						<button type="button" class="pull-right btn btn-default edituser" value="<?php echo $rowusr['userid']; ?>"><span class="glyphicon glyphicon-pencil"></span> Modify</button>
+						<span class="#pull-right #badge bg-default"><input type="hidden" id="eusername<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['username']; ?>"><?php echo $rowusr['username']; ?></span>
+						<button type="button" class="pull-right btn btn-default edituser" value="<?php echo $rowusr['userid']; ?>"><span class="glyphicon glyphicon-pencil"></span> Change</button>
 					<?php } else { ?>
 						<span class="#pull-right badge bg-red">User</span>
-						<span class="#pull-right badge bg-default"><input type="hidden" id="eusername<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['username']; ?>"><?php echo $rowusr['username']; ?></span>
+						<span class="#pull-right #badge bg-default"><input type="hidden" id="eusername<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['username']; ?>"><?php echo $rowusr['username']; ?></span>
 						<button type="button" class="pull-right btn btn-danger deleteuser" value="<?php echo $rowusr['userid']; ?>"><span class="glyphicon glyphicon-trash"></span> Trash</button>
-						<button type="button" class="pull-right btn btn-default edituser" value="<?php echo $rowusr['userid']; ?>"><span class="glyphicon glyphicon-pencil"></span> Modify</button>
+						<button type="button" class="pull-right btn btn-default edituser" value="<?php echo $rowusr['userid']; ?>"><span class="glyphicon glyphicon-pencil"></span> Change</button>
 					<?php 
 					} 
-						echo "<center><h2>" . $rowusr['uname'] . "</h2></center>" ;
 					?>
+					<center><a href="tel:<?php echo $rowusr['uname'] ?>"><h2><span class="fa fa-phone fa-1x">&nbsp;</span><?php echo $rowusr['uname'] ?></h2></a></center>
+						
 						<input type="hidden" id="ename<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['uname']; ?>">
 						<input type="hidden" id="epassword<?php echo $rowusr['userid']; ?>" value="<?php echo $rowusr['password']; ?>">
 					</a>

@@ -8,12 +8,6 @@
 	
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-	if(preg_match("/\S+/", $_POST['fname']) === 0){
-		$errors['fname'] = "* First Name is required.";
-	}
-	if(preg_match("/\S+/", $_POST['lname']) === 0){
-		$errors['lname'] = "* Last Name is required.";
-	}
 	if(preg_match("/\S+/", $_POST['email']) === 0){
 		$errors['email'] = "* BucketMail is required.";
 	}
@@ -32,8 +26,6 @@
 	
 	if(count($errors) === 0){
 		$username = mysqli_real_escape_string($conn, $_POST['username']);
-		$fname = mysqli_real_escape_string($conn, $_POST['fname']);
-		$lname = mysqli_real_escape_string($conn, $_POST['lname']);
 		$email = mysqli_real_escape_string($conn, $_POST['email']);
 
 		//Additional input
@@ -53,19 +45,18 @@
 		$search_query = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
 		$num_row = mysqli_num_rows($search_query);
 		if($num_row >= 1){
-			$errors['email'] = "The BucketMail account is already registered in Chatana!";
+			$errors['email'] = "The eConnect account is exist!";
 		}else{
-			$sql = "INSERT INTO user(`fname`, `lname`, `email`, `salt`, `password`, `access`, `photo`) VALUES ('$fname', '$lname', '$email', '$salt', '$password', '$access','$location')";
+			$sql = "INSERT INTO user(`username`, `email`, `salt`, `password`, `access`, `photo`) 
+			VALUES ('$username', '$email', '$salt', '$password', '$access','$location')";
 			$query = mysqli_query($conn, $sql);
 			$_POST['username'] = '';
-			$_POST['fname'] = '';
-			$_POST['lname'] = '';
 			$_POST['email'] = '';
 			
 			//Additional input
 			#$_POST['access'] = '2';
 			
-			$successful = "<h4 class='alert alert-success'>"."You are successfully registered. <a href='login.php'>Login</a></h4>";
+			$successful = "<h4 class='alert alert-success'>"."Well done! <a href='login.php'>Login</a> here.</h4>";
 		}
 	}
 	}
@@ -89,9 +80,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body"> 
-	<?php if(isset($successful )){ echo $successful; } ?> 
-	<?php if(isset($errors['fname'])){echo "<h5 class='alert alert-danger'>".$errors['fname']."</h5>"; } ?>
-	<?php if(isset($errors['lname'])){echo "<h5 class='alert alert-danger'>".$errors['lname']."</h5>"; } ?>
+	<?php if(isset($successful )){ echo $successful; } ?>
 	<?php if(isset($errors['email'])){echo "<h5 class='alert alert-warning'>".$errors['email']."</h5>"; } ?>
 	<?php if(isset($errors['password'])){echo "<h5 class='alert alert-danger'>".$errors['password']."</h5>"; } ?>
 	<?php if(isset($errors['confirm_password'])){echo "<h5 class='alert alert-warning'>".$errors['confirm_password']."</h5>"; } ?>
@@ -100,18 +89,9 @@
 	
 	<div class="col-md-12">
 		<div id = "preview" class="">
-			<input type="hidden" name="username" id="username" class="form-control" value="edit_user<?php 
+			<input type="text" name="username" id="username" class="form-control" value="<?=strrev("anatahc")?>_<?php 
 			echo (rand(10, 999));
 			?>">
-						
-			<div class="form-group input-group custom-text">
-				<span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
-				<input type="text" name="fname" id="fname" placeholder="First Name*" class="form-control" value="<?php if(isset($_POST['fname'])){echo $_POST['fname'];} ?>" required>
-			</div>
-			<div class="form-group input-group custom-text">
-				<span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
-				<input type="text" name="lname" id="lname" placeholder="Last Name*" class="form-control" value="<?php if(isset($_POST['lname'])){echo $_POST['lname'];} ?>" required>
-			</div>
 			<div class="form-group input-group custom-text">
 				<span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
 

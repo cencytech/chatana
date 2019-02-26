@@ -15,6 +15,6 @@ if (!$conn) {die("Connection failed: " . mysqli_connect_error());}
 
 $connPDO = new PDO( 'mysql:host='.$config["Host"].';dbname=abfiphco_chatana', $config["Root"], $config["Pass"]);
 
-#$mysqliConnectUpimage = mysqli_connect($config["Host"],$config["Root"],$config["Pass"],$config["Db"]);
-
+// Set input refresh timer. Default is 2 seconds
+$refresher = "20"
 ?>
