@@ -3,6 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<title>Chatana v2.5</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="">
 	<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
@@ -22,7 +23,14 @@
 <div class="login-wrap">
   
 	<div class="login-html" align="center">
+	<h1></h1>
 		<img src="dist/img/chatana.png" width="45%" style="margin-top:-50px" alt="Chatana"><br>
+
+	<?php if(isset($successful )){ echo "<h4 style='color:#fff'>".$successful."</h4>"; } ?>
+	<?php if(isset($errors['email'])){echo "<h4 style='color:#fff'>".$errors['email']."</h4>"; } ?>
+	<?php if(isset($errors['password'])){echo "<h4 style='color:#fff'>".$errors['password']."</h4>"; } ?>
+	<?php if(isset($errors['confirm_password'])){echo "<h4 style='color:#fff'>".$errors['confirm_password']."</h4>"; } ?>
+ 
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked>
 			<label for="tab-1" class="tab">Sign In</label>
 		<input id="tab-2" type="radio" name="tab" class="sign-up">
@@ -64,49 +72,53 @@
 					</div>
 				</form>
 			</div>
-						
-						<!-- SIGN UP FORM -->
+		 
+			<!-- SIGN UP FORM -->
 			<div class="sign-up-htm">
-				<div class="group">
-					<input type="hidden" name="username" id="username" class="input form-control" value="<?=strrev("anatahc")?>_<?php echo (rand(10, 999));?>">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">eConnect Account</label>
-					<?php $connPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-						$result = $connPDO->prepare("SELECT * FROM user WHERE isActivated = 1");
-						$result->execute();
-						echo '<select name="email" id="emailreg" class="form-control" placeholder="eConnect Account" required>
-							<option></option>'
-							;for($i=0; $row = $result->fetch(); $i++) 
-							{
-						?>
-							<option value="<?php if(isset($row['email'])){echo $row['email'];} ?>"><?php echo $row['email']?></option>
-						<?php } echo "</select>";?>
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Create Password</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Repeat Password</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Sign Up">
-				</div>
+
+			<form action="register.php" method="POST">	
+			<div class="group">
+				<input type="hidden" name="username" id="username" class="input form-control" value="<?=strrev("anatahc")?>_<?php echo (rand(10, 999));?>">
 			</div>
+			<div class="group">
+				<label for="email" style="color:#fff">eConnect Account</label>
+			<?php $connPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				$result = $connPDO->prepare("SELECT email FROM identities WHERE del = 0 ORDER BY email ASC");
+				$result->execute();
+				?>
+				<select name="email" id="emailreg" class="form-control #demo-default" placeholder="Browse your account..." required>
+					<option></option>
+					<?php for($i=0; $row = $result->fetch(); $i++){ ?>
+						<option value="<?php if(isset($row['email'])){echo $row['email'];} ?>"><?php echo $row['email']?></option>
+					<?php } ?>
+				</select>
+			</div>
+			<div class="group">
+				<label for="pass" style="color:#fff">Create Password</label>
+				<input type="password" name="password" id="pw" placeholder="Password*" class="input form-control" required>
+			</div>
+			<div class="group">
+				<label for="pass" style="color:#fff">Repeat Password</label>
+				<input type="password" name="confirm_password" id="cpw" placeholder="Confirm Password" class="input form-control" required>
+			</div>
+			<div class="group">
+				<input type="submit" class="button" name="submit" value="Sign Up">
+			</div>
+		</form>
+			</div>
+ 
+	<?php error_reporting(0);
+		session_start();
+		if(isset($_SESSION['msg'])){
+			echo "<h4 style='color:#fff'>".$_SESSION['msg']."</h4>";
+			unset($_SESSION['msg']);
+			}
+		?>	
+ 
 		</div>
 	</div>
 </div>
- 
-<?php 
-	error_reporting(0);
-	session_start();
-	if(isset($_SESSION['msg'])){
-		echo "<h4 class='alert alert-danger'>".$_SESSION['msg']."</h4>";
-		unset($_SESSION['msg']);
-	}
-	?>
+
 		</center>
   </div>
   <!-- /.login-box-body -->

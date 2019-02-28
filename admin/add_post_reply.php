@@ -69,7 +69,7 @@
 			<?php $query=mysqli_query($conn,"select * from user where isActivated!=0 order by 1 desc");
 				while($row=mysqli_fetch_array($query)){
 				?>
-				<option class="custom-text" value="<?=$row['email']?>"><?=$row['fname']." ".$row['lname']?></option>
+				<option class="custom-text" value="<?=$row['email']?>"><?=$row['email']?></option>
 				<?php
 					}
 					?>

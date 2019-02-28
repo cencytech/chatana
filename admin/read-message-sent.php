@@ -10,7 +10,7 @@
 		<!----comment -->
  
 	<?php 
-	
+	$id = $_REQUEST['id'];
 	$result = $connPDO->prepare("SELECT * FROM tbl_posts WHERE id = $_REQUEST[id]");
 	$result->execute();
 	
@@ -30,7 +30,7 @@
 		</div>
 		<!-- /.box-header -->
 		<div class="box-body">
-			<img src="<?php if(($qu2['photo']==null)){echo "../upload/messages/default.jpg";}else{echo "../upload/messages/".$qu2['photo'];} ?>" width="100%">
+			<img onerror="this.src = '<?php if($post['post_photo'] == null){echo "../upload/messages/".$post['post_photo'];}else{echo "../upload/messages/".$post['post_photo'];}?>'" height = "auto" width = "100%"src="#" />
 	
 			<h4 class="category"><?php echo $post['post_remarks']; ?></h4>
 		 
