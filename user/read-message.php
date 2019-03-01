@@ -28,7 +28,7 @@
 		</div>
 		<!-- /.box-header -->
 		<div class="box-body"> 
-			<img class="attachment-img #img-circle" src ="<?php if(empty($row['post_photo']) ){echo "../upload/messages/default.jpg";}else{echo "../upload/messages/".$row['post_photo'];}?>" width = "100%"/>
+		<img onerror="this.src = '<?php if($post['post_photo'] == "../upload/messages/default.jpg"){echo "../upload/messages/".$post['post_photo'];}else{echo "../upload/messages/".$post['post_photo'];}?>'" height = "auto" width = "100%"src="#" />
 			
 			<h4 class="category"><?php echo $post['post_remarks']; ?></h4>
 		</div>

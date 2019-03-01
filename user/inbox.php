@@ -54,9 +54,9 @@
 							<a href="inbox.php"><h3 class="box-title text-center text-danger"><i class="fa fa-inbox fa-2x"></i><br><small>My Inbox</small></h3></a>
 						&nbsp;</div>
 					</div>
-			<?php $queryz=mysqli_query($conn,"select * from tbl_posts WHERE send_to = '$email_user' order by 1 desc");
+		<?php $queryz=mysqli_query($conn,"select * from tbl_posts WHERE send_to = '$email_user' order by 1 desc");
 			while($row=mysqli_fetch_array($queryz)){
-			?>
+		?>
 			<!-- Start feeds content -->
  
 			<a href="read-message.php?id=<?php echo $row['id']?>" class="btn-lg">
@@ -65,11 +65,10 @@
 
 					<div class="attachment-pushed">
 						<h4 class="attachment-heading">
-							<strong style="text-transform:uppercase"><?php echo $row['post_title']?></strong>
+							<strong style="text-transform:uppercase"><?php echo $row['post_title']?><small class="pull-right"><?php echo $row['post_date'];?></small></strong>
 						</h4>
 						<div class="attachment-text">
-							<small>Sent by <?php echo $row['sent_by'];?>
-							<br>Sent on <?php echo $row['post_date'];?></small>
+							<small>Sent by <?php echo $row['sent_by'];?></small>
 						</div>
 					  <!-- /.attachment-text -->
 					</div>

@@ -59,10 +59,11 @@
 		<div class = "form-group">			
 		
 			<select class = "custom-text form-control"  name = "send_to" required = "required" style="width:100%" />
+			<option></option>
 			<?php $query=mysqli_query($conn,"select * from user where isActivated!=0 order by 1 desc");
 				while($row=mysqli_fetch_array($query)){
 				?>
-				<option class="custom-text" value="<?=$row['username']?>"><?=$row['fname']." ".$row['lname']?></option>
+				<option class="custom-text" value="<?=$row['email']?>"><?=$row['email']?></option>
 				<?php
 					}
 					?>

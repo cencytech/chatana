@@ -58,7 +58,7 @@
 			<!-- Start feeds content -->
 			<a href="read-message.php?id=<?php echo $row['id']?>" class="btn-lg">
 				<div class="attachment-block clearfix">
-					<img class="attachment-img #img-circle" src ="<?php if($row['post_photo'] == null ){echo "../dist/img/chatana-nophotos.png";}else{echo "../upload/".$row['post_photo'];}?>" width = "100%"/>
+				<img class="attachment-img #img-circle" src ="<?php if(empty($row['post_photo']) ){echo "../upload/messages/default.jpg";}else{echo "../upload/messages/".$row['post_photo'];}?>" width = "100px"/>
 
 					<div class="attachment-pushed">
 						<h4 class="attachment-heading">
@@ -92,9 +92,7 @@
 		</div><!-- /.modal-content -->
 	</div> <!-- /.modal-dialog -->
 	<!-- End Admin Compose -->
- 
-			    
-				 
+
 				  <!-- /.box -->
 			</div>
  

@@ -40,10 +40,10 @@
 	  </div>
 	<?php } else{ ?>
 	  <div class="col-xs-4 text-center">
-		<a href="user.php"><i class="fa fa-gears fa-2x"></i><br><small>User Privileges</small></a>
+		<a href="user.php"><i class="fa fa-gears fa-2x"></i><br><small>Manage User</small></a>
 	  </div>
 	  <div class="col-xs-4 text-center">
-		<a href="" data-toggle="push-menu"><i class="fa fa-signal fa-2x"></i><br><small>Online Users</small></a>
+		<a href="" data-toggle="push-menu"><i class="fa fa-signal fa-2x"></i><br><small>Active Users</small></a>
 	  </div>
 	  <div class="col-xs-4 text-center">
 		<a href="change.logs.php"><i class="fa fa-refresh fa-2x"></i><br><small>Author Updates</small></a>
@@ -58,17 +58,19 @@
   <li class="user-footer">
   <?php  if ($accesslevel ==1){ ?>
 	<div class="pull-left">
-	  <a href="control-panel.php" class="btn btn-default btn-flat"><span class="fa fa-gear"></span> Control Panel</a>
+	  <a href="control-panel.php" class="btn btn-default btn-flat"><span class="fa fa-gear"></span> User Panel</a>
 	</div>
 	<?php } else{ ?>
 	<div class="pull-left">
-	  <a class="btn btn-default btn-flat" data-toggle="push-menu"><span class="fa fa-signal"></span> Online Users</a>
+	  <a class="btn btn-default btn-flat" data-toggle="push-menu"><span class="fa fa-signal"></span> Active Users</a>
 	</div>
 	<?php } ?>
 	<div class="pull-right">
-	  <a href="#logout" data-toggle="modal" class="btn btn-default btn-flat"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+	  <a href="#logout" data-toggle="modal" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a>
 	</div>
+	
   </li>
+ 
 </ul>
 </li>
 
@@ -76,7 +78,7 @@
 	<span class="info-box-icon"><img src="../dist/img/chatana-user.png" class="#img-circle" alt="Chatana"></span>
 	<div class="info-box-content">
 		<span class="info-box-text">Chatana</span>
-		<span class="info-box-number">V1.0</span>
+		<span class="info-box-number">V2.5</span>
 		<span class="info-box-text">Jii Saaduddin</span>
 		<span class="info-box-text">jisaaduddin@abfiph.com</span>
 	</div>'

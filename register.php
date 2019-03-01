@@ -58,6 +58,8 @@
 				$_POST['username'] = '';
 				$_POST['email'] = '';
 				$_POST['password'] = '';
+				
+				$successful = "You are successfully registered. <a href='login.php'><strong>Login</strong></a> here.";
 			}
 		}
 	}
