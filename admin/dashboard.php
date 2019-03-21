@@ -5,6 +5,31 @@
 <?php $countUserTrashed = mysqli_query($conn,"SELECT userid FROM user WHERE isDeleted=1"); ?>
 
 <div class="row">
+
+<div class="box-body no-padding">
+	  <ul class="users-list clearfix">
+		<?php $query=mysqli_query($conn,"select * from user where isActivated!=0 order by 1 desc  limit 4");
+		while($row=mysqli_fetch_array($query)){
+		?>
+		<li>
+		  <img class="img-circle" src="<?php if(($row['photo']==null)){echo "../upload/avatar/default.jpg";}else{echo "../upload/avatar/".$row['photo'];} ?>" width="50px" height="50px">
+		  <a class="users-list-name" href="#"><?php echo $row['username'];?></a>
+			<?php if ($row['isOnline']==1) { ?>
+				<i style="color:lightgreen" class="fa fa-circle text-success"></i> Online
+			<?php }else{ ?>
+				<i style="color:red" class="fa fa-circle text-danger"></i> Offline
+			<?php } ?>
+		</li> 
+		<?php } ?>	
+	  </ul>
+	  <!-- /.users-list -->
+	</div>
+	<!-- /.box-body -->
+	<!--div class="box-footer text-center">
+		<a href="user.php">View All Users</a>
+	</div-->
+
+	
 <div class="col-lg-3 col-xs-6">
 	<div class="small-box bg-primary">
 		<div class="inner">
@@ -36,7 +61,7 @@
 	</div>
 </div>
 
-<div class="col-lg-3 col-xs-6">
+<div class="col-lg-12 col-xs-12">
 	<div class="small-box bg-yellow">
 		<div class="inner">
 			<h3><?php echo mysqli_num_rows($countUserPending); ?></h3>
@@ -51,20 +76,6 @@
 	</div>
 </div>
 
-<div class="col-lg-3 col-xs-6">
-	<div class="small-box bg-red">
-		<div class="inner">
-			<h3><?php echo mysqli_num_rows($countUserTrashed); ?></h3>
-			<p>Deleted User(s)</p>
-		</div>
-		<div class="icon">
-			<i class="ion ion-pie-graph"></i>
-		</div>
-		<a href="#" class="small-box-footer">
-			Tap here <i class="fa fa-stop-circle-o fa-lg"></i>
-		</a>
-	</div>
-</div>
 </div>
 
 
@@ -72,7 +83,7 @@
 
 <div class="row">
 	<div class="box-header with-border">
-	  <h3 class="box-title">Latest Members</h3>
+	  <h3 class="box-title">Welcome, New Members!</h3>
 
 	  <div class="box-tools pull-right">
 		<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -83,29 +94,6 @@
 	</div>
 	<!-- /.box-header -->
 
-	<div class="box-body no-padding">
-	  <ul class="users-list clearfix">
-		<?php $query=mysqli_query($conn,"select * from user where isActivated!=0 order by 1 desc");
-		while($row=mysqli_fetch_array($query)){
-		?>
-		<li>
-		  <img class="img-circle" src="<?php if(($row['photo']==null)){echo "../upload/avatar/default.jpg";}else{echo "../upload/avatar/".$row['photo'];} ?>" width="50px" height="50px">
-		  <a class="users-list-name" href="#"><?php echo $row['username'];?></a>
-			<?php if ($row['isOnline']==1) { ?>
-				<i style="color:lightgreen" class="fa fa-circle text-success"></i> Online
-			<?php }else{ ?>
-				<i style="color:red" class="fa fa-circle text-danger"></i> Offline
-			<?php } ?>
-		</li> 
-		<?php } ?>	
-	  </ul>
-	  <!-- /.users-list -->
-	</div>
-	<!-- /.box-body -->
-	<div class="box-footer text-center">
-		<!--a href="javascript:void(0)" class="sidebar-toggle" data-toggle="push-menu">View All Users</a-->
-		<a href="user.php">View All Users</a>
-	</div>
 </div>
 	<!-- /.box-footer -->
 
